@@ -1,1 +1,18 @@
 GET http://localhost:5000/
+
+###
+POST http://localhost:5000/
+Content-Type: application/json
+
+{
+    "title": "Rasa 2",
+    "description": "Rasa"
+}
+
+###
+
+DELETE 
+
+###
+
+PUT 
