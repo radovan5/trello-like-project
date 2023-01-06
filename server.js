@@ -1,11 +1,12 @@
 const express = require('express')
 const { check, validationResult } = require('express-validator')
-
+const cors = require('cors')
 const connectDB = require('./config/db')
 const PORT = process.env.PORT || 5000
 const app = express()
-
 const Card = require('./models/Card')
+
+app.use(cors())
 
 // Connect DataBase
 connectDB()
@@ -25,18 +26,17 @@ app.get('/', async (req, res) => {
 
 app.post(
   '/',
-  [
-    check('title', 'Title is required').not().isEmpty(),
-    check('description', 'Description is required').not().isEmpty(),
-  ],
+  [check('title', 'Title is required').not().isEmpty()],
   async (req, res) => {
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() })
     }
 
-    const { title, description, status, user } = req.body
-
+    const { title, description } = req.body
+    // Default value for status and user if not assigned
+    const status = req.body.status || 'To do'
+    const user = req.body.user || 'Unassigned'
     try {
       const newCard = new Card({
         title,
@@ -61,7 +61,7 @@ app.put('/:id', async (req, res) => {
   // Build card object, checks are they included and adds them to cardField
   const cardFields = {}
   if (title) cardFields.title = title
-  if (description) cardFields.description = title
+  if (description) cardFields.description = description
   if (status) cardFields.status = status
   if (user) cardFields.user = user
 
@@ -79,24 +79,6 @@ app.put('/:id', async (req, res) => {
       { new: true }
     )
     res.json(card)
-  } catch (error) {
-    console.error(error.message)
-    res.status(500).send('Server Error')
-  }
-})
-
-app.delete('/:id', async (req, res) => {
-  try {
-    // Find card by id
-    let card = await Card.findById(req.params.id)
-    // If not found
-    if (!card) {
-      return res.status(404).json({ msg: 'Task not found' })
-    }
-
-    await Card.findByIdAndRemove(req.params.id)
-
-    res.json({ msg: 'Card removed' })
   } catch (error) {
     console.error(error.message)
     res.status(500).send('Server Error')

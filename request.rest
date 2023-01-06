@@ -5,14 +5,21 @@ POST http://localhost:5000/
 Content-Type: application/json
 
 {
-    "title": "Rasa 2",
+    "title": "Rasa 22",
     "description": "Rasa"
 }
 
 ###
 
-DELETE 
+DELETE http://localhost:5000/63b3f18148181abec4c95300
+
 
 ###
 
-PUT 
+PUT http://localhost:5000/63b3f3c1c6602a8bd67b2b62
+Content-Type: application/json
+
+ {
+        "title": "Test from update"
+      
+}

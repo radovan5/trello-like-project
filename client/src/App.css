@@ -1,0 +1,65 @@
+.App {
+  text-align: center;
+  height: 100vh;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.card {
+  background-color: rgba(69, 189, 32, 0.37);
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  
+}
+
+.card:hover {
+  background-color: rgba(69, 189, 32, 0.144);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+
+.Row {
+  display: table;
+  width: 100%; 
+  table-layout: fixed;
+  border-spacing: 10px; 
+}
+.Column {
+  display: table-cell;
+  background-color: rgba(121, 121, 121, 0.199);
+  overflow-wrap: break-word;
+  display: inline-table;
+  box-shadow: 0 4px 8px 0  rgba(121, 121, 121, 0.199), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+
+}
+
+li {
+  text-align: left;
+  box-shadow: 0 4px 8px 0  rgba(121, 121, 121, 0.199), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+}
+li:hover, li:focus{
+  box-shadow: 0 4px 8px 0  rgba(0, 102, 204, 0.199), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+  box-shadow: 0 0.5em 0.5em -0.4em;
+  transform: translateY(-0.25em);
+}
+
+h5 {
+  padding-top: 10px;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: rgba(0, 0, 0, 0.397);
+  text-align: center;
+}
+

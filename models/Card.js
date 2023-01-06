@@ -7,13 +7,14 @@ const CardSchema = mongoose.Schema({
   },
   description: {
     type: String,
-    require: true,
   },
   status: {
     type: String,
+    default: 'To do',
   },
   user: {
     type: String,
+    default: 'Unassigned',
   },
 })
 
