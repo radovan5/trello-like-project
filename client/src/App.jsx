@@ -94,7 +94,7 @@ const App = () => {
                   key={item._id}
                   onClick={() => onItemClick(item)}
                 >
-                  {item.title}- {item.status}
+                  {item.title}
                 </li>
               ))}
           </ul>
@@ -110,7 +110,7 @@ const App = () => {
                   key={item._id}
                   onClick={() => onItemClick(item)}
                 >
-                  {item.title}- {item.status}
+                  {item.title}
                 </li>
               ))}
           </ul>
@@ -126,7 +126,7 @@ const App = () => {
                   key={item._id}
                   onClick={() => onItemClick(item)}
                 >
-                  {item.title}- {item.status}
+                  {item.title}
                 </li>
               ))}
           </ul>
